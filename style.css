@@ -53,13 +53,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  background-color: #52163b;
-  background-image: 
-    radial-gradient(circle at 50% 30%, rgba(162, 53, 110, 0.5) 0%, rgba(68, 14, 46, 0.85) 100%),
-    url('images/tulips-bg.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: radial-gradient(circle at 50% 25%, #7a1d52 0%, #4a1033 55%, #2a081c 100%);
   transition: background 0.8s ease, filter 0.8s ease;
 }
 
@@ -1098,14 +1092,6 @@ body.screen-4-active .bg-overlay {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.letter-text p:first-of-type::first-letter {
-  font-family: var(--font-script);
-  font-size: 3.2rem;
-  float: left;
-  line-height: 0.8;
-  padding-right: 8px;
-  color: var(--color-pink-accent);
-}
 
 .letter-closing {
   font-family: var(--font-script);
@@ -1207,8 +1193,13 @@ body.screen-4-active .bg-overlay {
     font-size: 0.65rem;
   }
 
+  .screen-letter {
+    padding: 45px 16px 120px;
+  }
+
   .letter-paper {
-    padding: 35px 22px;
+    padding: 30px 20px 26px;
+    border-radius: 22px;
   }
 
   .letter-wax-stamp {
@@ -1216,6 +1207,11 @@ body.screen-4-active .bg-overlay {
     width: 36px;
     height: 36px;
     font-size: 0.95rem;
+  }
+
+  .letter-salutation {
+    font-size: 1.9rem;
+    margin-bottom: 14px;
   }
 
   .spotify-card {
@@ -1249,7 +1245,20 @@ body.screen-4-active .bg-overlay {
   }
 
   .letter-text {
-    font-size: 1.02rem;
-    line-height: 1.75;
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .letter-text p {
+    margin-bottom: 14px;
+  }
+
+  .letter-closing {
+    font-size: 1.75rem;
+    margin-top: 20px;
+  }
+
+  .letter-action-footer {
+    margin-top: 24px;
   }
 }
