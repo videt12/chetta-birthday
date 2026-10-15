@@ -1020,25 +1020,25 @@ body.screen-4-active .bg-overlay {
 }
 
 .spotify-play-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--color-pink-vibrant);
-  border: none;
-  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #52163b;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(236, 64, 122, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, background 0.2s ease;
   flex-shrink: 0;
 }
 
 .spotify-play-btn:hover {
-  transform: scale(1.1);
-  background: #f06292;
+  transform: scale(1.08);
+  background: #ffffff;
 }
 
 /* Romantic Letter Paper */
@@ -1060,19 +1060,21 @@ body.screen-4-active .bg-overlay {
 
 .letter-wax-stamp {
   position: absolute;
-  top: -20px;
-  right: 40px;
+  top: -21px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #ad1457;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #ad1457, #880e4f);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   color: var(--color-pink-soft);
+  z-index: 2;
 }
 
 .letter-text {
@@ -1207,6 +1209,43 @@ body.screen-4-active .bg-overlay {
 
   .letter-paper {
     padding: 35px 22px;
+  }
+
+  .letter-wax-stamp {
+    top: -18px;
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .spotify-card {
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .spotify-inner {
+    gap: 12px;
+  }
+
+  .spotify-album-art {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+
+  .spotify-title {
+    font-size: 0.95rem;
+  }
+
+  .spotify-artist {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .spotify-play-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
   }
 
   .letter-text {
