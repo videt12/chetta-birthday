@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Chetta! 🌷 Birthday Tulips</title>
+  
+  <!-- Google Fonts: Script headings & Serif body/buttons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <!-- Ambient Audio Element -->
+  <audio id="bg-music" src="song.mp3" preload="auto" loop></audio>
+
+  <!-- Floating Music Toggle Controller -->
+  <button id="music-toggle" class="music-btn" aria-label="Toggle background music" title="Toggle Music">
+    <span class="music-icon paused" id="music-icon">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+      <span class="bar bar-4"></span>
+    </span>
+    <span class="music-label" id="music-label">Play Song ♫</span>
+  </button>
+
+  <!-- Fullscreen Canvas for Confetti & Sparkles -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Global Tulip Background Layer & Plum Tint Overlay -->
+  <div id="app-background" class="app-background">
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- MAIN APP CONTAINER (Single Page Application Screens) -->
+  <main id="app-container" class="app-container">
+
+    <!-- ================= SCREEN 1: WELCOME SCREEN ================= -->
+    <section id="screen-1" class="screen screen-welcome active" aria-label="Welcome Screen">
+      <div class="screen-content welcome-box">
+        <div class="welcome-decorations">
+          <span class="decor-petal petal-1">🌸</span>
+          <span class="decor-petal petal-2">✨</span>
+          <span class="decor-petal petal-3">🌷</span>
+        </div>
+        <h1 class="script-heading main-title">Happy Birthday, Chetta!</h1>
+        <p class="serif-subtitle">Cheers to the new chapter of your life!</p>
+        <div class="button-wrapper">
+          <button id="btn-start" class="btn-romantic" data-target="screen-2">
+            Continue <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 2: THE GIFT BOX ================= -->
+    <section id="screen-2" class="screen screen-gift" aria-label="The Gift Box">
+      <div class="screen-content gift-content">
+        <h2 class="script-heading">Happy Birthday, Chetta!</h2>
+        
+        <div class="gift-box-wrapper" id="gift-box-trigger" role="button" tabindex="0" aria-label="Open your birthday gift">
+          <div class="gift-box-glow"></div>
+          <div class="gift-sparkles-container">
+            <span class="sparkle sp-1">✦</span>
+            <span class="sparkle sp-2">✧</span>
+            <span class="sparkle sp-3">✨</span>
+            <span class="sparkle sp-4">✦</span>
+          </div>
+          <img src="images/gift-box.png" alt="3D Birthday Gift Box" class="gift-box-img" id="gift-box-img" data-fallback="gift-box">
+          <p class="gift-hint">Click the gift box to open ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 3: MAIN MENU HUB ================= -->
+    <section id="screen-3" class="screen screen-hub" aria-label="Main Menu Hub">
+      <div class="screen-content hub-content">
+        <header class="hub-header">
+          <h2 class="script-heading">Happy Birthday, Chetta!</h2>
+          <p class="serif-subtitle">Choose one to get started!</p>
+        </header>
+
+        <!-- 3-Column Interactive Choice Grid -->
+        <div class="hub-grid">
+          <!-- Choice 1: Flowers for you -->
+          <div class="hub-card" id="card-flowers" role="button" tabindex="0" data-target="screen-4" aria-label="Flowers for you">
+            <div class="hub-card-inner">
+              <div class="card-icon-wrapper">
+                <img src="images/single-tulip.png" alt="Single Tulip" class="card-img tulip-bounce" data-fallback="single-tulip">
+              </div>
+              <h3 class="card-title">Flowers for you</h3>
+              <span class="card-badge">Tap to bloom 🌷</span>
+            </div>
+          </div>
+
+          <!-- Choice 2: A Piece of Us -->
+          <div class="hub-card" id="card-piece-of-us" role="button" tabindex="0" data-target="screen-5" aria-label="A Piece of Us">
+            <div class="hub-card-inner">
+              <div class="card-icon-wrapper cake-wrapper">
+                <span class="twinkle tw-1">✨</span>
+                <span class="twinkle tw-2">✦</span>
+                <span class="twinkle tw-3">✧</span>
+                <img src="images/cake-card.png" alt="A Piece of Us" class="card-img cake-sparkle" data-fallback="cake">
+              </div>
+              <h3 class="card-title">A Piece of you</h3>
+              <span class="card-badge">i love you 🎂</span>
+            </div>
+          </div>
+
+          <!-- Choice 3: Letter just for you -->
+          <div class="hub-card" id="card-letter" role="button" tabindex="0" data-target="screen-6" aria-label="Letter just for you">
+            <div class="hub-card-inner">
+              <div class="card-icon-wrapper">
+                <img src="images/envelope.png" alt="Love Letter Envelope" class="card-img envelope-float" data-fallback="envelope">
+              </div>
+              <h3 class="card-title">Letter just for you</h3>
+              <span class="card-badge">From my heart 💌</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 4: FLOWERS FOR YOU ================= -->
+    <section id="screen-4" class="screen screen-flowers" aria-label="Flowers For You!">
+      <div class="screen-content flowers-content">
+        <header class="flowers-header">
+          <h2 class="script-heading flowers-title">Flowers For You!</h2>
+        </header>
+
+        <div class="bouquet-stage">
+          <div class="bouquet-halo"></div>
+          <img src="images/bouquet.png" alt="Flower Bouquet with Tulips and Daffodils" class="bouquet-img" id="bouquet-img" data-fallback="bouquet">
+          <p class="bouquet-quote">"If I had a single flower for every time I think of you, I could walk forever in my garden."</p>
+        </div>
+
+        <div class="flowers-action-footer">
+          <button class="btn-romantic btn-bottom-right" data-target="screen-3">
+            Continue <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 5: A PIECE OF US IN THIS LIFETIME ================= -->
+    <section id="screen-5" class="screen screen-photobooth" aria-label="A Piece of Us in this Lifetime">
+      <div class="screen-content photobooth-content">
+        <header class="photobooth-header">
+          <h2 class="script-heading photobooth-title">A Piece of You in this Lifetime</h2>
+        </header>
+
+        <div class="photobooth-body">
+          <!-- Left Side: Cake -->
+          <div class="photobooth-left">
+            <div class="featured-cake-box">
+              <div class="cake-candle-glow"></div>
+              <img src="images/cake.png" alt="Birthday Celebration Cake" class="featured-cake-img" data-fallback="cake">
+              <p class="cake-wish">Sweetest wishes for my favorite human ♡</p>
+            </div>
+          </div>
+
+          <!-- Right Side: Two Polaroid Photobooth Strips -->
+          <div class="photobooth-right">
+            <!-- Floating Cute Stickers -->
+            <div class="photobooth-stickers" aria-hidden="true">
+              <span class="sticker sticker-1">🌸</span>
+              <span class="sticker sticker-2">⭐</span>
+              <span class="sticker sticker-3">🌷</span>
+              <span class="sticker sticker-4">💖</span>
+              <span class="sticker sticker-5">🌼</span>
+              <span class="sticker sticker-6">✨</span>
+            </div>
+
+            <div class="photostrips-container">
+              <!-- Strip 1: Photos 1 to 3 -->
+              <div class="polaroid-strip strip-left">
+                <div class="strip-header-tape"></div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img1.jpg" alt="Memory 1" class="strip-photo" data-fallback="img1">
+                  </div>
+                  <span class="frame-caption">where it all began ♡</span>
+                </div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img2.jpg" alt="Memory 2" class="strip-photo" data-fallback="img2">
+                  </div>
+                  <span class="frame-caption">your sweetest smile ✨</span>
+                </div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img3.jpg" alt="Memory 3" class="strip-photo" data-fallback="img3">
+                  </div>
+                  <span class="frame-caption">cheers to you ✨</span>
+                </div>
+                <div class="strip-footer-tag">CHAPTER 01</div>
+              </div>
+
+              <!-- Strip 2: Photos 4 to 6 -->
+              <div class="polaroid-strip strip-right">
+                <div class="strip-header-tape"></div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img4.jpg" alt="Memory 4" class="strip-photo" data-fallback="img4">
+                  </div>
+                  <span class="frame-caption">picture perfect 📸</span>
+                </div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img5.jpg" alt="Memory 5" class="strip-photo" data-fallback="img5">
+                  </div>
+                  <span class="frame-caption">magical nights ✨</span>
+                </div>
+                <div class="strip-frame">
+                  <div class="frame-photo-wrap">
+                    <img src="images/img6.jpg" alt="Memory 6" class="strip-photo" data-fallback="img6">
+                  </div>
+                  <span class="frame-caption">always shining ✧</span>
+                </div>
+                <div class="strip-footer-tag">IN THIS LIFETIME</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-centered Continue button returning to Screen 3 -->
+        <div class="photobooth-footer">
+          <button class="btn-romantic btn-center" data-target="screen-3">
+            Continue <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 6: LETTER JUST FOR YOU ================= -->
+    <section id="screen-6" class="screen screen-letter" aria-label="Letter just for you">
+      <div class="screen-content letter-content-container">
+        <header class="letter-header">
+          <h2 class="script-heading">Happy Birthday, Chetta!</h2>
+        </header>
+
+        <!-- Spotify / Music Player Card -->
+        <div class="spotify-card" id="spotify-player-card">
+          <div class="spotify-inner">
+            <div class="spotify-album-art">
+              <div class="vinyl-disc"></div>
+              <img src="images/song-cover.jpg" alt="Album Cover" class="album-thumb" data-fallback="single-tulip">
+            </div>
+            <div class="spotify-details">
+              <div class="spotify-tag">CHETTA'S SPECIAL TRACK</div>
+              <div class="spotify-title" id="track-title">A Couple Minutes</div>
+              <div class="spotify-artist" id="track-artist">Olivia Dean</div>
+              <div class="spotify-progress-bar">
+                <div class="spotify-progress-fill" id="track-progress"></div>
+              </div>
+            </div>
+            <button class="spotify-play-btn" id="spotify-card-toggle" aria-label="Play/Pause Special Track">
+              <span class="sp-icon sp-play" id="sp-btn-icon">▶</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Romantic Letter Reading Column -->
+        <article class="letter-paper">
+          <div class="letter-wax-stamp">
+            <span>♡</span>
+          </div>
+          
+          <div class="letter-text">
+            <p class="letter-salutation">Dear Chetta,</p>
+
+            <p>
+              On this special day, the world was blessed with such a kind, gentle, and radiant soul. I’m truly grateful to have you in my life.
+            </p>
+
+            <p>
+              Your presence always brings warmth, comfort. Thank you for all the shared laughs, the great conversations, and every fun memory we’ve made together.
+            </p>
+
+            <p>
+              May this new chapter bring you peace, boundless happiness, and all the success and joy you deserve in life.
+            </p>
+
+            <p class="letter-closing">
+              Happy Birthday, Chetta! ✨<br>
+              Always wishing you the very best.
+            </p>
+          </div>
+
+          <!-- Bottom-centered Continue button returning to Screen 3 -->
+          <div class="letter-action-footer">
+            <button class="btn-romantic btn-center" data-target="screen-3">
+              Continue <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>
